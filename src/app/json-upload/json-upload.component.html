@@ -1,0 +1,4 @@
+<button mat-raised-button color="primary" (click)="fileInput.click()">Upload JSON</button>
+<input #fileInput type="file" style="display: none" (change)="onFileSelected($event)">
+
+<pre *ngIf="jsonData">{{ jsonData | json }}</pre>
