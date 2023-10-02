@@ -1,4 +1,50 @@
-<button mat-raised-button color="primary" (click)="fileInput.click()">Upload JSON</button>
-<input #fileInput type="file" style="display: none" (change)="onFileSelected($event)">
+<mat-card class="container">
 
-<pre *ngIf="jsonData">{{ jsonData | json }}</pre>
+  <!-- Área 1 -->
+  <mat-card-content class="custom-card-content">
+    <mat-card>
+      <mat-card-header class="custom-card-header">
+        <mat-card-title>
+          <h1>Upload do Arquivo JSON de Entrada:</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <button mat-raised-button color="primary" (click)="fileInput.click()">Upload JSON</button>
+        <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)">
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+
+  <!-- Área 2 -->
+  <mat-card-content class="custom-card-content" *ngIf="jsonData && jsonData.length">
+    <mat-card>
+      <mat-card-header class="custom-card-header">
+        <mat-card-title>
+          <h1>Visualização do Arquivo JSON de Entrada:</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="memo-container">
+          <pre>{{ formattedJsonData }}</pre>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+
+  <!-- Área 3 -->
+  <mat-card-content class="custom-card-content" *ngIf="jsonOutputData && jsonOutputData.length">
+    <mat-card>
+      <mat-card-header class="custom-card-header">
+        <mat-card-title>
+          <h1>Visualização do Arquivo JSON de Saída:</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="memo-container">
+          <pre>{{ formattedJsonOutputData }}</pre>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+
+</mat-card>
